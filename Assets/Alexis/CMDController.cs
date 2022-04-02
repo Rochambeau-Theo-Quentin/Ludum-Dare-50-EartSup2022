@@ -20,7 +20,7 @@ public class CMDController : MonoBehaviour
     private string textCMDStack;
     private string currentTextWritting;
     private int indexCommand = 0;
-    private int indexWritting= 0;
+    private int indexWritting = 0;
 
     public UnityEvent messageIsWritting;
     
@@ -70,6 +70,7 @@ public class CMDController : MonoBehaviour
 
     private GameObject obj;
     private Text txt;
+    
     void SetTextCommand()
     {
         CreateText();
