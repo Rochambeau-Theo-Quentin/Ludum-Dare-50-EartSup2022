@@ -64,11 +64,9 @@ public class CMDController : MonoBehaviour
             if (indexCommand > myDialogue[indexWritting].writtingText.Length)
             {
                 SetTextCommand();
-
-                for (int i = 0; i < myDialogue[indexWritting].dialogueText.Count; i++)
-                {
-                    SetTextDialogue();
-                }
+                
+                SetTextDialogue();
+                
 
                 messageIsWritting.Invoke();
 
