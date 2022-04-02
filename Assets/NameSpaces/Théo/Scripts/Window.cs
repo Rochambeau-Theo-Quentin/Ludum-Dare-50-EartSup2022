@@ -25,11 +25,6 @@ namespace Nazio_LT
             canvas = GetComponent<Canvas>();
         }
 
-        public void ChangeState(bool _state)
-        {
-            state = _state;
-            DispWindow();
-        }
         public void ChangeState()
         {
             state = !state;

@@ -6,7 +6,7 @@ namespace Nazio_LT
         {
             if (linkedWindow == null) linkedWindow = computer.CreateWindow(type);
 
-            linkedWindow.ChangeState(true);
+            linkedWindow.ChangeState();
         }
     }
 }
