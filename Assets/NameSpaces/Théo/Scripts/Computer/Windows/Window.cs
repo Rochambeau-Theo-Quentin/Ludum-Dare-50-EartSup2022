@@ -17,7 +17,7 @@ namespace Nazio_LT
 
         private CanvasGroup canvasGroup;
         public Canvas canvas { private set; get; }
-        private ComputerController computer;
+        protected ComputerController computer;
         private OpenIcon icon;
 
         public void OnDrag(PointerEventData _eventData)

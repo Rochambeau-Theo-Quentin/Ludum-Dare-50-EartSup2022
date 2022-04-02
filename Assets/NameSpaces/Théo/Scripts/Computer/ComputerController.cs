@@ -8,6 +8,7 @@ namespace Nazio_LT
     {
         Template = 0,
         CMD = 1,
+        CloseCMD = 2,
     }
 
     public class ComputerController : MonoBehaviour
@@ -45,7 +46,7 @@ namespace Nazio_LT
 
             foreach (var windows in openedWindows)
             {
-                windows.canvas.sortingOrder = 10;
+                if(windows != null) windows.canvas.sortingOrder = 10;
             }
 
             _window.canvas.sortingOrder = 50;
