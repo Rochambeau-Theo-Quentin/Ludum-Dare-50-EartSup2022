@@ -4,37 +4,24 @@ using UnityEngine;
 
 namespace Nazio_LT
 {
-    public class ClickableIcon : MonoBehaviour
+    public abstract class ClickableIcon : MonoBehaviour
     {
-        [SerializeField] private WindowType type;
+        [SerializeField] protected WindowType type;
 
-        private ComputerController computer;
-        private Window linkedWindow;
+        protected ComputerController computer;
+        protected Window linkedWindow;
 
         private void Awake()
         {
             computer = FindObjectOfType<ComputerController>();
         }
 
-        /// <summary>
-        /// Va ouvir si a deja une fenetre, sinon va creer. Pour barre des taches.
-        /// </summary>
-        public void Open()
+        public void Init(Window _link, WindowType _type)
         {
-            if (linkedWindow == null) linkedWindow = computer.CreateWindow(type);
-
-            linkedWindow.ChangeState(true);
+            linkedWindow = _link;
+            type = _type;
         }
 
-        /// <summary>
-        /// Va creer. Pour bureau.
-        /// </summary>
-        public void Create()
-        {
-            //Instantie lui meme
-            //Reset l'objet
-            Window _win = computer.CreateWindow(type);
-            //link l'ojet a la nouvelle window
-        }
+        public abstract void Click();
     }
 }
