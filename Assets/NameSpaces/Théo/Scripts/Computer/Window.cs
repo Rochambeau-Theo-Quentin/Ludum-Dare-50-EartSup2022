@@ -11,12 +11,16 @@ namespace Nazio_LT
         private int id;
 
         private CanvasGroup canvasGroup;
-        private Canvas canvas;
+        public Canvas canvas { private set; get; }
         private ComputerController computer;
         private OpenIcon icon;
 
+        #region ImplementedMethods
+
         public void OnDrag(PointerEventData _eventData)
         {
+            computer.SetFirstPlanWindow(this);
+
             RectTransform _bar = (RectTransform)transform.GetChild(0);
             RectTransform _transform = (RectTransform)transform;
 
@@ -31,6 +35,8 @@ namespace Nazio_LT
             else if (_mousePos.y < 0) transform.position = new Vector2(transform.position.x, 1);
         }
 
+        #endregion
+
         #region MainMethods
 
         public void Init(int _id, OpenIcon _icon)
@@ -42,6 +48,7 @@ namespace Nazio_LT
 
             canvasGroup = GetComponent<CanvasGroup>();
             canvas = GetComponent<Canvas>();
+            computer = FindObjectOfType<ComputerController>();
         }
 
         public void ChangeState()

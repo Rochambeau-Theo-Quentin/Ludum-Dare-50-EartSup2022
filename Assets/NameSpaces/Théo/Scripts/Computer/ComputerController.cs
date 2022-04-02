@@ -33,9 +33,14 @@ namespace Nazio_LT
             return _win;
         }
 
-        public void CloseWindow(int _id)
+        public void SetFirstPlanWindow(Window _window)
         {
+            foreach (var windows in openedWindows)
+            {
+                windows.canvas.sortingOrder = 10;
+            }
 
+            _window.canvas.sortingOrder = 50;
         }
     }
 }
