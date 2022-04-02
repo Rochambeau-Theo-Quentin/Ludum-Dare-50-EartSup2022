@@ -16,13 +16,19 @@ public class CMDController : MonoBehaviour
 
     [Header("Layout")]
     [SerializeField] private VerticalLayoutGroup verticalLayoutGroup;
+
+    public UnityEvent messageIsWritting;
+
+    [Header("Individue")]
+    [SerializeField] private Color hackerColor;
+    [SerializeField] private Color userColor;
+    [SerializeField] private string userName;
+    [SerializeField] private string hackerName;
     
     private string textCMDStack;
     private string currentTextWritting;
     private int indexCommand = 0;
-    private int indexWritting = 0;
-
-    public UnityEvent messageIsWritting;
+    private int indexWritting= 0;
     
     [Header("List of dialogue")]
     [SerializeField]
@@ -35,6 +41,7 @@ public class CMDController : MonoBehaviour
         [TextArea(5,5)]
         public List<string> dialogueText;
     }
+    
     private void Update()
     {
         if (Input.anyKeyDown)
@@ -54,7 +61,8 @@ public class CMDController : MonoBehaviour
                 {
                     SetTextDialogue();
                 }
-                
+
+                messageIsWritting.Invoke();
                 
                 indexCommand = 0;
                 indexWritting++;
@@ -69,15 +77,12 @@ public class CMDController : MonoBehaviour
 
     private GameObject obj;
     private Text txt;
-    
     void SetTextCommand()
     {
         CreateText();
-        
-        messageIsWritting.Invoke();
-        
         textCMD.text = ($"----------------");
-        txt.text = myDialogue[indexWritting].writtingText;
+        txt.text = ($"{userName} {myDialogue[indexWritting].writtingText}");
+        txt.color = userColor;
         verticalLayoutGroup.padding.top += -50;
     }    
     
@@ -86,7 +91,8 @@ public class CMDController : MonoBehaviour
         for (int i = 0; i <  myDialogue[indexWritting].dialogueText.Count; i++)
         {
             CreateText();
-            txt.text = myDialogue[indexWritting].dialogueText[i];
+            txt.text = ($"{hackerName} {myDialogue[indexWritting].dialogueText[i]}");
+            txt.color = hackerColor;
             verticalLayoutGroup.padding.top += -50;
         }
     }
