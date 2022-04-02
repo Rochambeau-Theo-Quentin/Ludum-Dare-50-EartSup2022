@@ -17,7 +17,8 @@ public abstract class Dialogue : MonoBehaviour
 
     [Header("Layout")]
     [SerializeField] protected VerticalLayoutGroup verticalLayoutGroup;
-
+    private Scrollbar scrollbar;
+    
     public UnityEvent messageIsWritting;
     
     [Header("Individue")]
@@ -44,6 +45,11 @@ public abstract class Dialogue : MonoBehaviour
         [TextArea(5,5)]
         public List<string> dialogueText;
     }
+    private void Start()
+    {
+        verticalLayoutGroup = GetComponentInChildren<VerticalLayoutGroup>();
+        scrollbar = GetComponentInChildren<Scrollbar>();
+    }
 
     public void checkKeyBoard()
     {
@@ -60,11 +66,8 @@ public abstract class Dialogue : MonoBehaviour
             if (indexCommand > myDialogue[indexWritting].writtingText.Length)
             {
                 SetTextCommand();
-
-                for (int i = 0; i <  myDialogue[indexWritting].dialogueText.Count; i++)
-                {
-                    SetTextDialogue();
-                }
+                SetTextDialogue();
+                
 
                 messageIsWritting.Invoke();
                     
@@ -85,7 +88,7 @@ public abstract class Dialogue : MonoBehaviour
         textCMD.text = ($"Cortana");
         txt.text = ($"{userName} {myDialogue[indexWritting].writtingText}");
         txt.color = userColor;
-        verticalLayoutGroup.padding.top += -50;
+        scrollbar.value = 0;
     }    
     
     public virtual  void SetTextDialogue()
@@ -96,7 +99,7 @@ public abstract class Dialogue : MonoBehaviour
             CreateText();
             txt.text = ($"{hackerName} {myDialogue[indexWritting].dialogueText[i]}");
             txt.color = hackerColor;
-            verticalLayoutGroup.padding.top += -50;
+            scrollbar.value = 0;
         }
     }
     

@@ -41,7 +41,7 @@ public class CMDController : MonoBehaviour
 
     [Header("List of dialogue")]
     [SerializeField]
-    public contentDialogue[] myDialogue;
+    public List<contentDialogue> myDialogue;
 
     private void Start()
     {
@@ -54,7 +54,7 @@ public class CMDController : MonoBehaviour
 
         if (Input.anyKeyDown && !(Input.GetKey(KeyCode.Mouse0) || Input.GetKey(KeyCode.Mouse1)))
         {
-            if (indexWritting == myDialogue.Length)
+            if (indexWritting == myDialogue.Count)
             {
                 return;
             }
@@ -107,5 +107,16 @@ public class CMDController : MonoBehaviour
     {
         obj = Instantiate(prefabTextCMD, verticalLayoutGroup.transform);
         txt = obj.GetComponentInChildren<Text>();
+    }
+
+    public void AddDialogue(string name, List<string> dialogues)
+    {
+        myDialogue.Add(new contentDialogue());
+        
+        var contentWritting = myDialogue[myDialogue.Count];
+        contentWritting.writtingText = name;
+        
+        var contentDialogue = myDialogue[myDialogue.Count];
+        contentDialogue.dialogueText = dialogues;
     }
 }
