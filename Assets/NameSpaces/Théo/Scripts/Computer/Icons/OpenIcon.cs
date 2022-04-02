@@ -4,7 +4,7 @@ namespace Nazio_LT
     {
         public override void Click()
         {
-            if (linkedWindow == null) linkedWindow = computer.CreateWindow(type);
+            if (linkedWindow == null) linkedWindow = computer.CreateWindow(type, path);
 
             linkedWindow.ChangeState();
         }

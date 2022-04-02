@@ -20,7 +20,7 @@ namespace Nazio_LT
         [Header("Refs")]
         [SerializeField] private Transform bar;
 
-        public Window CreateWindow(WindowType _type)
+        public Window CreateWindow(WindowType _type, string _path)
         {
             Window _win = Instantiate(windowsPrefabs[((int)_type)], transform.position, Quaternion.identity, transform).GetComponent<Window>();
             openedWindows.Add(_win);
@@ -28,7 +28,7 @@ namespace Nazio_LT
             OpenIcon _icon = Instantiate(iconPrefab, Vector3.zero, Quaternion.identity, bar).GetComponent<OpenIcon>();
             _icon.Init(_win, _type);
 
-            _win.Init(openedWindows.Count - 1, _icon);
+            _win.Init(openedWindows.Count - 1, _icon, _path);
 
             return _win;
         }
