@@ -6,6 +6,8 @@ namespace Nazio_LT
 {
     public abstract class ClickableIcon : MonoBehaviour
     {
+        [SerializeField] protected string path;
+
         [SerializeField] protected WindowType type;
 
         protected ComputerController computer;

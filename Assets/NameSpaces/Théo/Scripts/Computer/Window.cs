@@ -7,6 +7,8 @@ namespace Nazio_LT
 {
     public class Window : MonoBehaviour, IDragHandler
     {
+        protected string path;
+
         private bool state;
         private int id;
         private Vector2 originalSize;
@@ -14,7 +16,7 @@ namespace Nazio_LT
         private const float ANIMTIME = 0.25f;
 
         private CanvasGroup canvasGroup;
-        private Canvas canvas;
+        public Canvas canvas { private set; get; }
         private ComputerController computer;
         private OpenIcon icon;
 
@@ -36,9 +38,10 @@ namespace Nazio_LT
 
         #region MainMethods
 
-        public void Init(int _id, OpenIcon _icon)
+        public virtual void Init(int _id, OpenIcon _icon, string _path)
         {
             id = _id;
+            path = _path;
 
             icon = _icon;
 
