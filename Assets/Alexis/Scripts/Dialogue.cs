@@ -5,25 +5,33 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
 
-public class Cortana : MonoBehaviour
-{
+public abstract class Dialogue : MonoBehaviour
+{    
     [Header("Base command")]
     [SerializeField]
-    private string baseCommandText;
-    
+    protected string baseCommandText;
     [Header("Text of CMD")]
-    [SerializeField] private Text textCMD;
-    [SerializeField] private GameObject prefabTextCMD;
+    [SerializeField]
+    protected Text textCMD;
+    [SerializeField] protected GameObject prefabTextCMD;
 
     [Header("Layout")]
-    [SerializeField] private VerticalLayoutGroup verticalLayoutGroup;
+    [SerializeField] protected VerticalLayoutGroup verticalLayoutGroup;
 
     public UnityEvent messageIsWritting;
-
-    private string textCMDStack;
-    private string currentTextWritting;
-    private int indexCommand = 0;
-    private int indexWritting= 0;
+    
+    [Header("Individue")]
+    [SerializeField] protected Color hackerColor;
+    [SerializeField] protected Color userColor;
+    [SerializeField] protected string userName;
+    [SerializeField] protected string hackerName;
+    
+    protected string textCMDStack;
+    protected string currentTextWritting;
+    protected int indexCommand = 0;
+    protected int indexWritting= 0;
+    protected GameObject obj;
+    protected Text txt;
     
     [Header("List of dialogue")]
     [SerializeField]
@@ -36,8 +44,8 @@ public class Cortana : MonoBehaviour
         [TextArea(5,5)]
         public List<string> dialogueText;
     }
-    
-    private void Update()
+
+    public void checkKeyBoard()
     {
         if (Input.anyKeyDown)
         {
@@ -45,9 +53,10 @@ public class Cortana : MonoBehaviour
             {
                 return;
             }  
-            
+                
             indexCommand++;
 
+            Debug.Log($"indexCommand : {indexCommand} and indexWritting {indexWritting}");
             if (indexCommand > myDialogue[indexWritting].writtingText.Length)
             {
                 SetTextCommand();
@@ -58,39 +67,40 @@ public class Cortana : MonoBehaviour
                 }
 
                 messageIsWritting.Invoke();
-                
+                    
                 indexCommand = 0;
                 indexWritting++;
-                
+                    
                 return;
             }   
-            
+                
             currentTextWritting = myDialogue[indexWritting].writtingText.Substring(0, indexCommand);
             textCMD.text = ($"{baseCommandText}{currentTextWritting}");
         }
     }
 
-    private GameObject obj;
-    private Text txt;
-    void SetTextCommand()
+    public virtual void SetTextCommand()
     {
         CreateText();
         textCMD.text = ($"Cortana");
-        txt.text = ($"{myDialogue[indexWritting].writtingText}");
+        txt.text = ($"{userName} {myDialogue[indexWritting].writtingText}");
+        txt.color = userColor;
         verticalLayoutGroup.padding.top += -50;
     }    
     
-    void SetTextDialogue()
+    public virtual  void SetTextDialogue()
     {
         for (int i = 0; i <  myDialogue[indexWritting].dialogueText.Count; i++)
         {
+            Debug.Log("je creer un text");
             CreateText();
-            txt.text = ($"{myDialogue[indexWritting].dialogueText[i]}");
+            txt.text = ($"{hackerName} {myDialogue[indexWritting].dialogueText[i]}");
+            txt.color = hackerColor;
             verticalLayoutGroup.padding.top += -50;
         }
     }
     
-    void CreateText()
+    public virtual  void CreateText()
     {
         obj = Instantiate(prefabTextCMD, verticalLayoutGroup.transform);
         txt = obj.GetComponentInChildren<Text>();
