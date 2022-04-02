@@ -20,7 +20,7 @@ public class CMDController : MonoBehaviour
     private string textCMDStack;
     private string currentTextWritting;
     private int indexCommand = 0;
-    private int indexWritting= 0;
+    private int indexWritting = 0;
 
     public UnityEvent messageIsWritting;
     
@@ -54,8 +54,7 @@ public class CMDController : MonoBehaviour
                 {
                     SetTextDialogue();
                 }
-
-                messageIsWritting.Invoke();
+                
                 
                 indexCommand = 0;
                 indexWritting++;
@@ -73,6 +72,9 @@ public class CMDController : MonoBehaviour
     void SetTextCommand()
     {
         CreateText();
+        
+        messageIsWritting.Invoke();
+        
         textCMD.text = ($"----------------");
         txt.text = myDialogue[indexWritting].writtingText;
         verticalLayoutGroup.padding.top += -50;
