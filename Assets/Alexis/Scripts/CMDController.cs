@@ -51,7 +51,8 @@ public class CMDController : MonoBehaviour
 
     private void Update()
     {
-        if (Input.anyKeyDown)
+
+        if (Input.anyKeyDown && !(Input.GetKey(KeyCode.Mouse0) || Input.GetKey(KeyCode.Mouse1)))
         {
             if (indexWritting == myDialogue.Length)
             {
