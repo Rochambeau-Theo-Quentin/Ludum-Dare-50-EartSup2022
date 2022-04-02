@@ -69,6 +69,7 @@ public class CMDController : MonoBehaviour
 
     private GameObject obj;
     private Text txt;
+    
     void SetTextCommand()
     {
         CreateText();

@@ -1,10 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 namespace Nazio_LT
 {
-    public class Window : MonoBehaviour
+    public class Window : MonoBehaviour, IDragHandler
     {
         private bool state;
         private int id;
@@ -13,6 +14,24 @@ namespace Nazio_LT
         private Canvas canvas;
         private ComputerController computer;
         private OpenIcon icon;
+
+        public void OnDrag(PointerEventData _eventData)
+        {
+            RectTransform _bar = (RectTransform)transform.GetChild(0);
+            RectTransform _transform = (RectTransform)transform;
+
+            Vector2 _mousePos = _eventData.position;
+
+            transform.position = _mousePos - Vector2.up * _transform.sizeDelta.y / 2;
+
+            if (_mousePos.x > Screen.width) transform.position = new Vector2(Screen.width - 1, transform.position.y);
+            else if (_mousePos.x < 0) transform.position = new Vector2(1, transform.position.y);
+
+            if (_mousePos.y > Screen.height) transform.position = new Vector2(transform.position.x, Screen.height - 1);
+            else if (_mousePos.y < 0) transform.position = new Vector2(transform.position.x, 1);
+        }
+
+        #region MainMethods
 
         public void Init(int _id, OpenIcon _icon)
         {
@@ -43,6 +62,12 @@ namespace Nazio_LT
             canvasGroup.alpha = state ? 1f : 0f;
         }
 
+        #endregion
+
+        #region Setters
+
         public void SetID(int _id) { id = _id; }
+
+        #endregion
     }
 }
