@@ -1,0 +1,18 @@
+#if UNITY_EDITOR
+
+using UnityEngine;
+using UnityEditor;
+
+[CustomEditor(typeof(TARGET))]
+public class #SCRIPTNAME# : Editor
+{
+    public override void OnInspectorGUI()
+    {
+        base.DrawDefaultInspector();
+
+        TARGET _script = (TARGET)target;
+
+    }
+}
+
+#endif
