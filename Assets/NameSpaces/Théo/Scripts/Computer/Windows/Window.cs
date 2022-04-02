@@ -58,7 +58,7 @@ namespace Nazio_LT
             StartCoroutine(ChangingStateAnimation(false, state));
         }
 
-        public void Close()
+        public virtual void Close()
         {
             StartCoroutine(ChangingStateAnimation(true, false));
         }

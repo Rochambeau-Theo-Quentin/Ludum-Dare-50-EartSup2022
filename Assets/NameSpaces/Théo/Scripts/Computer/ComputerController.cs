@@ -6,7 +6,8 @@ namespace Nazio_LT
 {
     public enum WindowType
     {
-        Folder = 0,
+        Template = 0,
+        CMD = 1,
     }
 
     public class ComputerController : MonoBehaviour
@@ -19,6 +20,11 @@ namespace Nazio_LT
 
         [Header("Refs")]
         [SerializeField] private Transform bar;
+
+        private void Start()
+        {
+            CreateWindow(WindowType.CMD, "cmd.exe");
+        }
 
         public Window CreateWindow(WindowType _type, string _path)
         {
