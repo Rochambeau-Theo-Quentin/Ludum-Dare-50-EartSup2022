@@ -9,7 +9,7 @@ namespace Nazio_LT
     {
         protected string path;
 
-        private bool state;
+        public bool state { private set; get; }
         private int id;
         private Vector2 originalSize;
 
@@ -34,6 +34,8 @@ namespace Nazio_LT
 
             if (_mousePos.y > Screen.height) transform.position = new Vector2(transform.position.x, Screen.height - 1);
             else if (_mousePos.y < 0) transform.position = new Vector2(transform.position.x, 1);
+
+            computer.SetFirstPlanWindow(this);
         }
 
         #region MainMethods
@@ -49,16 +51,19 @@ namespace Nazio_LT
             canvas = GetComponent<Canvas>();
 
             originalSize = ((RectTransform)transform).sizeDelta;
+            computer = FindObjectOfType<ComputerController>();
             ChangeState();
         }
 
-        public void ChangeState()
+        public virtual void ChangeState()
         {
             state = !state;
             StartCoroutine(ChangingStateAnimation(false, state));
+
+            if(state) computer.SetFirstPlanWindow(this);
         }
 
-        public void Close()
+        public virtual void Close()
         {
             StartCoroutine(ChangingStateAnimation(true, false));
         }
