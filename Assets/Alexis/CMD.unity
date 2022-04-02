@@ -1122,16 +1122,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c30c6b2b118482944872afe18bc34cc2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  writtingText:
-  - "Je suis dans les ombres, dans le cr\xE9puscule !"
-  - OPPPPPPPPPPPPPPPPP mais quest ce que vous faites la !
-  dialogueText:
-  - zrfz rfdfgfdgdfgdgdfgd
-  - 55646565454645156489448146914
   baseCommandText: C:\WINDOWS\system32>
   textCMD: {fileID: 263704679}
   prefabTextCMD: {fileID: 2255585422475998475, guid: 5f97822cefb606b4a9bdf6fc3e06d4a6, type: 3}
   verticalLayoutGroup: {fileID: 591366164}
+  messageIsWritting:
+    m_PersistentCalls:
+      m_Calls: []
   myDialogue:
   - writtingText: Je suis la dans les ombres
     dialogueText:

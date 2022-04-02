@@ -35,6 +35,7 @@ public class CMDController : MonoBehaviour
         [TextArea(5,5)]
         public List<string> dialogueText;
     }
+    
     private void Update()
     {
         if (Input.anyKeyDown)
