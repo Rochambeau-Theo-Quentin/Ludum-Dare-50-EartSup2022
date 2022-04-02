@@ -328,7 +328,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'CMD : Commande dsfsd'
+  m_Text: C:\WINDOWS\system32>
 --- !u!222 &263704680
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1123,22 +1123,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   writtingText:
-  - Je suis dans les ombres
+  - "Je suis dans les ombres, dans le cr\xE9puscule !"
   - OPPPPPPPPPPPPPPPPP mais quest ce que vous faites la !
   dialogueText:
-  - "Pingouin ([p\u025B\u0303.\u0261w\u025B\u0303]) est un nom vernaculaire port\xE9
-    en fran\xE7ais par deux esp\xE8ces d\u2019oiseaux de la famille des Alcid\xE9s,
-    dont la seule esp\xE8ce encore vivante est le Petit Pingouin (Alca torda). Ces
-    esp\xE8ces vivent dans l\u2019h\xE9misph\xE8re nord, cherchant leur nourriture
-    dans les eaux maritimes et oc\xE9aniques froides. On peut rencontrer le Petit
-    Pingouin de l'Arctique jusqu\u2019en M\xE9diterran\xE9e occidentale et sur les
-    c\xF4tes atlantiques du Maroc en passant, par exemple, par la Bretagne. Ce dernier
-    vole, alors que le Grand Pingouin, esp\xE8ce \xE9teinte en 18441, ne le pouvait
-    pas.\r\n\r\nDans le langage courant, le mot \xAB pingouin \xBB d\xE9signe souvent
-    des manchots de mani\xE8re abusive, notamment dans la culture populaire."
-  baseCommandText: 'CMD :'
+  - zrfz rfdfgfdgdfgdgdfgd
+  - 55646565454645156489448146914
+  baseCommandText: C:\WINDOWS\system32>
   textCMD: {fileID: 263704679}
-  verticalLayoutGroup: {fileID: 0}
+  prefabTextCMD: {fileID: 2255585422475998475, guid: 5f97822cefb606b4a9bdf6fc3e06d4a6, type: 3}
+  verticalLayoutGroup: {fileID: 591366164}
+  myDialogue:
+  - writtingText: Je suis la dans les ombres
+    dialogueText:
+    - Je suis un mangeur de pomme
+    - et j'aime la confiture
+  - writtingText: popeoeoeoeo
+    dialogueText:
+    - Courgette
 --- !u!1 &982736294
 GameObject:
   m_ObjectHideFlags: 0

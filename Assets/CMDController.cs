@@ -1,20 +1,11 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Events;
 
 public class CMDController : MonoBehaviour
 {
-    [Header("List of dialogue")]
-    [TextArea(3,2)]
-    [SerializeField]
-    private List<string> writtingText;
-    
-    [TextArea(5,5)]
-    [SerializeField]
-    private List<string> dialogueText;
-    
     [Header("Base command")]
     [SerializeField]
     private string baseCommandText;
@@ -25,88 +16,77 @@ public class CMDController : MonoBehaviour
 
     [Header("Layout")]
     [SerializeField] private VerticalLayoutGroup verticalLayoutGroup;
-
-
+    
     private string textCMDStack;
     private string currentTextWritting;
     private int indexCommand = 0;
     private int indexWritting= 0;
-
-    private void Start()
+    
+    [Header("List of dialogue")]
+    [SerializeField]
+    public contentDialogue[] myDialogue;
+    [Serializable]
+    public struct contentDialogue
     {
-        SetText();
+        public string writtingText; 
+        
+        [TextArea(5,5)]
+        public List<string> dialogueText;
     }
-
     private void Update()
     {
         if (Input.anyKeyDown)
         {
-            if (indexWritting == writtingText.Count)
+            if (indexWritting == myDialogue.Length)
             {
                 return;
             }  
             
             indexCommand++;
-            
-            if (indexCommand > writtingText[indexWritting].Length)
+
+            if (indexCommand > myDialogue[indexWritting].writtingText.Length)
             {
+                SetTextCommand();
+
+                for (int i = 0; i <  myDialogue[indexWritting].dialogueText.Count; i++)
+                {
+                    SetTextDialogue();
+                }
+
+                indexCommand = 0;
                 indexWritting++;
+                
                 return;
-            }
+            }   
             
-            currentTextWritting = writtingText[indexWritting].Substring(0, indexCommand);
+            currentTextWritting = myDialogue[indexWritting].writtingText.Substring(0, indexCommand);
             textCMD.text = ($"{baseCommandText}{currentTextWritting}");
         }
     }
 
-    void SetText()
+    private GameObject obj;
+    private Text txt;
+    void SetTextCommand()
     {
-        GameObject obj = Instantiate(prefabTextCMD, verticalLayoutGroup.transform);
-        Text txt = obj.GetComponentInChildren<Text>();
-
-        txt.text = writtingText[indexWritting];
+        CreateText();
+        textCMD.text = ($"----------------");
+        txt.text = myDialogue[indexWritting].writtingText;
         verticalLayoutGroup.padding.top += -50;
-    }
-
-    /*
-    private void Start()
-    {
-        //Debug.Log( " basicText : " + basicText + "allText : " + allText[0]);
-        //textCMD.text = ($"{textCMD.text} \n \n {basicText}{allText[0]}");
-        SetText();
-    }
-
-    private void Update()
-    {
-
-        if (Input.anyKeyDown)
-        {
-            if (indexWritting == writtingText.Count)
-            {
-                return;
-            }  
-            
-            indexCommand++;
-
-            if (indexCommand > writtingText[indexWritting].Length)
-            {                
-                SetText();
-                textCMD.text = ($"{textCMDStack} \n \n {dialogueText[indexWritting]}");
-                SetText();
+    }    
     
-                indexCommand = 0;
-                indexWritting++;
-                return;
-            }
-            
-            currentTextWritting = writtingText[indexWritting].Substring(0, indexCommand);
-            textCMD.text = ($"{textCMDStack} \n \n {baseCommandText}{currentTextWritting}");
+    void SetTextDialogue()
+    {
+        for (int i = 0; i <  myDialogue[indexWritting].dialogueText.Count; i++)
+        {
+            CreateText();
+            txt.text = myDialogue[indexWritting].dialogueText[i];
+            verticalLayoutGroup.padding.top += -50;
         }
     }
-
-    void SetText()
+    
+    void CreateText()
     {
-        textCMDStack = textCMD.text;
+        obj = Instantiate(prefabTextCMD, verticalLayoutGroup.transform);
+        txt = obj.GetComponentInChildren<Text>();
     }
-    */
 }
