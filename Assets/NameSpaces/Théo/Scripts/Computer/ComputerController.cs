@@ -41,6 +41,8 @@ namespace Nazio_LT
 
         public void SetFirstPlanWindow(Window _window)
         {
+            print("Set 1st plan : " + _window.name);
+
             foreach (var windows in openedWindows)
             {
                 windows.canvas.sortingOrder = 10;

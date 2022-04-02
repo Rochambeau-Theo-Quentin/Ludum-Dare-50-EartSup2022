@@ -6,6 +6,15 @@ using UnityEngine.Events;
 
 public class CMDController : MonoBehaviour
 {
+    [Serializable]
+    public struct contentDialogue
+    {
+        public string writtingText;
+
+        [TextArea(5, 5)]
+        public List<string> dialogueText;
+    }
+
     [Header("Base command")]
     [SerializeField]
     private string baseCommandText;
@@ -33,14 +42,6 @@ public class CMDController : MonoBehaviour
     [Header("List of dialogue")]
     [SerializeField]
     public contentDialogue[] myDialogue;
-    [Serializable]
-    public struct contentDialogue
-    {
-        public string writtingText;
-
-        [TextArea(5, 5)]
-        public List<string> dialogueText;
-    }
 
     private void Start()
     {
