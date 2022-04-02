@@ -21,6 +21,8 @@ public class CMDController : MonoBehaviour
     private string currentTextWritting;
     private int indexCommand = 0;
     private int indexWritting= 0;
+
+    public UnityEvent messageIsWritting;
     
     [Header("List of dialogue")]
     [SerializeField]
@@ -53,6 +55,8 @@ public class CMDController : MonoBehaviour
                     SetTextDialogue();
                 }
 
+                messageIsWritting.Invoke();
+                
                 indexCommand = 0;
                 indexWritting++;
                 
