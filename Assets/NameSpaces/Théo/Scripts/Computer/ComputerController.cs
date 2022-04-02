@@ -9,6 +9,7 @@ namespace Nazio_LT
         Template = 0,
         CMD = 1,
         CloseCMD = 2,
+        NotePad = 3,
     }
 
     public class ComputerController : MonoBehaviour

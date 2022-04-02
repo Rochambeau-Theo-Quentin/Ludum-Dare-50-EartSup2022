@@ -14,11 +14,5 @@ namespace Nazio_LT
 
             sound.PlaySound("Alert");
         }
-
-        public override void ChangeState()
-        {
-            if (!sound) sound = FindObjectOfType<SoundController>();
-            sound.PlaySound("Alert");
-        }
     }
 }
