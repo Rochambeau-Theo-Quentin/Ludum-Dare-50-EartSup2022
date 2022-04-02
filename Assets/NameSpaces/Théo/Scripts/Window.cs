@@ -1,5 +1,5 @@
 using System.Collections;
-using System.Collections.Generic;
+using System;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
@@ -9,6 +9,9 @@ namespace Nazio_LT
     {
         private bool state;
         private int id;
+        private Vector2 originalSize;
+
+        private const float ANIMTIME = 0.25f;
 
         private CanvasGroup canvasGroup;
         private Canvas canvas;
@@ -35,31 +38,61 @@ namespace Nazio_LT
 
         public void Init(int _id, OpenIcon _icon)
         {
-            state = true;
             id = _id;
 
             icon = _icon;
 
             canvasGroup = GetComponent<CanvasGroup>();
             canvas = GetComponent<Canvas>();
+
+            originalSize = ((RectTransform)transform).sizeDelta;
+            ChangeState();
         }
 
         public void ChangeState()
         {
             state = !state;
-            DispWindow();
+            StartCoroutine(ChangingStateAnimation(false, state));
         }
 
         public void Close()
         {
-            Destroy(icon.gameObject);
-            Destroy(this.gameObject);
+            StartCoroutine(ChangingStateAnimation(true, false));
         }
 
-        private void DispWindow()
+        private IEnumerator ChangingStateAnimation(bool _close, bool _state)
         {
-            canvas.enabled = state ? true : false;
-            canvasGroup.alpha = state ? 1f : 0f;
+            canvas.enabled = true;
+            RectTransform _rect = (RectTransform)transform;
+
+            Func<float, float> alphaMethod = _flt => _state ? Mathf.Lerp(0, 1, _flt / ANIMTIME) : Mathf.Lerp(1, 0, _flt / ANIMTIME);
+            Func<float, Vector2> sizeMethod = _flt => _state ? Vector2.Lerp(Vector2.zero, originalSize, _flt / ANIMTIME) : Vector2.Lerp(originalSize, Vector2.zero, _flt / ANIMTIME);
+
+            float _t = 0;
+
+            while (true)
+            {
+                yield return null;
+
+                _t += Time.deltaTime;
+
+                canvasGroup.alpha = alphaMethod.Invoke(_t);
+                _rect.sizeDelta = sizeMethod.Invoke(_t);
+
+                if (_t > ANIMTIME)
+                {
+                    canvasGroup.alpha = state ? 1 : 0;
+                    break;
+                }
+            }
+
+            canvas.enabled = _state;
+
+            if (_close)
+            {
+                Destroy(icon.gameObject);
+                Destroy(this.gameObject);
+            }
         }
 
         #endregion
