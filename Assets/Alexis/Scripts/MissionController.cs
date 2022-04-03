@@ -51,7 +51,7 @@ public class MissionController : MonoBehaviour
 
     public void Start()
     {
-        FinishStepMission();
+        //FinishStepMission();
     }
     
     public void FinishStepMission()
