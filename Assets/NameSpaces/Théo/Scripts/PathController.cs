@@ -24,7 +24,7 @@ namespace Nazio_LT
         private void RegisterPaths()
         {
             paths.Add("cmd.exe", WindowType.CMD);
-            paths.Add("notePad.exe", WindowType.NotePad);
+            paths.Add("desktop/Read_Me.txt", WindowType.ReadMe);
             paths.Add("alertCloseCMD.exe", WindowType.CloseCMD);
         }
 
@@ -45,10 +45,11 @@ namespace Nazio_LT
             string[] _cmdParts = _command.Split(' ');
             if (_cmdParts[0] == "Open" && paths.ContainsKey(_cmdParts[1]))
             {
-                computer.CreateWindow(paths[_cmdParts[1]], _cmdParts[1]);
-                return "Opening window : " + _cmdParts[1];
+                if (computer.CreateWindow(paths[_cmdParts[1]], _cmdParts[1]) != null) return "Opening window : " + _cmdParts[1];
+                return "Cannot Open second cmd.";
+
             }
-            else return "Path doesn't exist.";
+            return "Path doesn't exist.";
         }
     }
 }

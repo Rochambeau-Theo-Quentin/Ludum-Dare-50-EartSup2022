@@ -9,11 +9,13 @@ namespace Nazio_LT
         Template = 0,
         CMD = 1,
         CloseCMD = 2,
-        NotePad = 3,
+        ReadMe = 3,
     }
 
     public class ComputerController : MonoBehaviour
     {
+        private bool cmdOpen;
+
         private List<Window> openedWindows = new List<Window>();
 
         [Header("Prefabs")]
@@ -31,6 +33,8 @@ namespace Nazio_LT
 
         public Window CreateWindow(WindowType _type, string _path)
         {
+            if(cmdOpen && _type == WindowType.CMD) return null;
+
             Window _win = Instantiate(windowsPrefabs[((int)_type)], transform.position, Quaternion.identity, transform).GetComponent<Window>();
             openedWindows.Add(_win);
 
@@ -38,6 +42,8 @@ namespace Nazio_LT
             _icon.Init(_win, _type);
 
             _win.Init(openedWindows.Count - 1, _icon, _path);
+
+            if(_type == WindowType.CMD) cmdOpen = true;
 
             return _win;
         }

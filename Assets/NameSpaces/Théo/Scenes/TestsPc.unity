@@ -237,24 +237,6 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 7281298506816272307, guid: e3bbe54c7e379714c9c1983ed88fcfdf, type: 3}
   m_PrefabInstance: {fileID: 224208671}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &224208673 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7281298506816272306, guid: e3bbe54c7e379714c9c1983ed88fcfdf, type: 3}
-  m_PrefabInstance: {fileID: 224208671}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &224208674
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 224208673}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0ddc96bf053a6b943aca258d2d3d3aed, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  savedText: 'My task to do : '
 --- !u!1 &305865005
 GameObject:
   m_ObjectHideFlags: 0
