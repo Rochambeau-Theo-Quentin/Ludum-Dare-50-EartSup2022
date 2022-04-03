@@ -384,7 +384,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ddc96bf053a6b943aca258d2d3d3aed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  savedText: 'My task to do : '
+  savedText: "My task to do : \n\n- Children at school: 4:30 pm\n- Retouch photos\n-
+    try to remove the CMD\n\nC:\\Users\\John\\Documents\\Holidays\\2016"
 --- !u!1001 &9092869880062760346
 PrefabInstance:
   m_ObjectHideFlags: 0

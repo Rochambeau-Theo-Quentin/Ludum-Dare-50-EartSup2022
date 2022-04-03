@@ -12,6 +12,7 @@
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/Assets/Alexis/Scripts/TestDeMission.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Alexis/Scripts/SendInformation.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="ProjectId" id="27EVknq1O4XVTMop89u4BLWrlKv" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -59,7 +60,7 @@
       <updated>1648885460074</updated>
       <workItem from="1648885461094" duration="15731000" />
       <workItem from="1648925711007" duration="3048000" />
-      <workItem from="1648973730728" duration="15672000" />
+      <workItem from="1648973730728" duration="24440000" />
     </task>
     <servers />
   </component>

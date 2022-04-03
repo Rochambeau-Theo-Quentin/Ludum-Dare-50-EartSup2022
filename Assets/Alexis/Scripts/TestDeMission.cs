@@ -9,7 +9,6 @@ public class TestDeMission : MonoBehaviour, IPointerEnterHandler
     public UnityEvent myEvent;
     public void OnPointerEnter(PointerEventData eventData)
     {
-        Debug.Log(name);
         myEvent.Invoke();
     }
     

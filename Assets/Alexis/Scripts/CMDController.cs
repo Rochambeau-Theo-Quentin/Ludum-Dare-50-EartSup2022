@@ -140,7 +140,7 @@ public class CMDController : MonoBehaviour  , IPointerEnterHandler, IPointerExit
     //j'ajoute du dialogue lors de la fin de  ma mission 
     public void AddDialogue(string commandeCMD, List<string> dialogues)
     {
-        //Debug.Log("name : " + commandeCMD);
+        Debug.Log("name : " + commandeCMD);
         contentDialogue newContentDialogue = new CMDController.contentDialogue(commandeCMD, dialogues);
         
         myDialogue.Add(newContentDialogue);
@@ -177,4 +177,8 @@ public class CMDController : MonoBehaviour  , IPointerEnterHandler, IPointerExit
         Debug.Log(_string);
     }
 
+    public dialogueState GetState()
+    {
+        return dialogueType; 
+    }
 }

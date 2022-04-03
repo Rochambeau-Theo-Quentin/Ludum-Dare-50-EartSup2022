@@ -30,6 +30,20 @@ MonoBehaviour:
   - writtingText: popeoeoeoeo
     dialogueText:
     - Courgette
+  dialogueType: 0
+  seePanelDialogue: {fileID: 0}
+--- !u!114 &2071033790573100914
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2749941323639336429}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3a064dfc2b5fbb74381e3d07e07c2210, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &8662475192369637694
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -304,6 +318,10 @@ PrefabInstance:
     - target: {fileID: 2749941323929519607, guid: 41060328b41abea46955a76db7c079f2, type: 3}
       propertyPath: m_Name
       value: CMD
+      objectReference: {fileID: 0}
+    - target: {fileID: 2749941323929519607, guid: 41060328b41abea46955a76db7c079f2, type: 3}
+      propertyPath: m_TagString
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 3212131289078944938, guid: 41060328b41abea46955a76db7c079f2, type: 3}
       propertyPath: m_AnchorMax.x
