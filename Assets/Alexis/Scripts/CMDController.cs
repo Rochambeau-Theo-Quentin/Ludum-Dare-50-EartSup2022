@@ -3,8 +3,16 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Events;
+using UnityEngine.EventSystems;
 
-public class CMDController : MonoBehaviour
+public enum dialogueState
+{
+CMD,
+Cortana,
+Google
+}
+
+public class CMDController : MonoBehaviour  , IPointerEnterHandler, IPointerExitHandler
 {
     [Serializable]
     public struct contentDialogue
@@ -13,6 +21,11 @@ public class CMDController : MonoBehaviour
 
         [TextArea(5, 5)]
         public List<string> dialogueText;
+        
+        public contentDialogue(string writtingTxt,  List<string> dialogueTxt) {
+            this.writtingText = writtingTxt;
+            this.dialogueText = dialogueTxt;
+        }
     }
 
     [Header("Base command")]
@@ -38,30 +51,44 @@ public class CMDController : MonoBehaviour
     private string currentTextWritting;
     private int indexCommand = 0;
     private int indexWritting = 0;
+    private bool canWritting = false;
 
     [Header("List of dialogue")]
     [SerializeField]
     public List<contentDialogue> myDialogue;
 
+    [SerializeField] private dialogueState dialogueType;
+    [SerializeField] private GameObject seePanelDialogue;
     private void Start()
     {
         verticalLayoutGroup = GetComponentInChildren<VerticalLayoutGroup>();
         scrollbar = GetComponentInChildren<Scrollbar>();
+        
+        if(dialogueType == dialogueState.Cortana || dialogueType == dialogueState.Google)
+         seePanelDialogue.SetActive(false);
     }
 
     private void Update()
     {
+        if(!canWritting)
+            return;
+        
+        Writting();
+    }
 
+    private void Writting()
+    {
         if (Input.anyKeyDown && !(Input.GetKey(KeyCode.Mouse0) || Input.GetKey(KeyCode.Mouse1)))
         {
             if (indexWritting == myDialogue.Count)
             {
                 return;
             }
-
+            
             indexCommand++;
 
-            if (indexCommand > myDialogue[indexWritting].writtingText.Length)
+            Debug.Log($"indexCommand : {indexCommand} > myDialogue[indexWritting].writtingText.Length : {myDialogue[indexWritting].writtingText.Length}");
+            if (indexCommand >= myDialogue[indexWritting].writtingText.Length)
             {
                 SetTextCommand();
                 
@@ -109,14 +136,38 @@ public class CMDController : MonoBehaviour
         txt = obj.GetComponentInChildren<Text>();
     }
 
-    public void AddDialogue(string name, List<string> dialogues)
+    //j'ajoute du dialogue lors de la fin de  ma mission 
+    public void AddDialogue(string commandeCMD, List<string> dialogues)
     {
-        myDialogue.Add(new contentDialogue());
+        //Debug.Log("name : " + commandeCMD);
+        contentDialogue newContentDialogue = new CMDController.contentDialogue(commandeCMD, dialogues);
         
-        var contentWritting = myDialogue[myDialogue.Count];
-        contentWritting.writtingText = name;
-        
-        var contentDialogue = myDialogue[myDialogue.Count];
-        contentDialogue.dialogueText = dialogues;
+        myDialogue.Add(newContentDialogue);
     }
+    
+    //Que dans GOOGLE ET CORTANA avoir pour l'abstract
+    public void OnPointerEnter(PointerEventData eventData)
+    {
+        Debug.Log("Je rentre dans : " + name);
+        
+        if (dialogueType == dialogueState.Cortana|| dialogueType == dialogueState.Google)
+        {
+            seePanelDialogue.SetActive(true);
+        }
+        Debug.Log(" canWritting  : " + canWritting);
+        canWritting = true;
+    }
+    
+    public void OnPointerExit(PointerEventData eventData)
+    {
+        Debug.Log("Je sors de : " + name);
+        
+        if (dialogueType == dialogueState.Cortana || dialogueType == dialogueState.Google)
+        {
+            seePanelDialogue.SetActive(false);
+        }
+        
+        canWritting = false;
+    }
+
 }
