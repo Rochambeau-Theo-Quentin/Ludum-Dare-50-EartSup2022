@@ -11,11 +11,13 @@ namespace Nazio_LT
         CloseCMD = 2,
         ReadMe = 3,
         Gogol = 4,
+        Folder = 5,
     }
 
     public class ComputerController : MonoBehaviour
     {
         private bool cmdOpen;
+        [SerializeField] private bool canDrag = true;
 
         private List<Window> openedWindows = new List<Window>();
 
@@ -59,9 +61,9 @@ namespace Nazio_LT
             _window.canvas.sortingOrder = 50;
         }
 
-        public void CMD(string _cmd)
+        public bool CanDrag()
         {
-            Debug.Log(path.Command(_cmd));
-        }
+            return canDrag;
+        } 
     }
 }

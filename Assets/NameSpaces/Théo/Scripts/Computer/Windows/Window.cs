@@ -20,8 +20,20 @@ namespace Nazio_LT
         protected ComputerController computer;
         private OpenIcon icon;
 
+        private void Start()
+        {
+            computer = FindObjectOfType<ComputerController>();
+
+            canvasGroup = GetComponent<CanvasGroup>();
+            canvas = GetComponent<Canvas>();
+        }
+
         public void OnDrag(PointerEventData _eventData)
         {
+            computer.SetFirstPlanWindow(this);
+
+            if (!computer.CanDrag()) return;
+
             RectTransform _bar = (RectTransform)transform.GetChild(0);
             RectTransform _transform = (RectTransform)transform;
 
@@ -34,8 +46,6 @@ namespace Nazio_LT
 
             if (_mousePos.y > Screen.height) transform.position = new Vector2(transform.position.x, Screen.height - 1);
             else if (_mousePos.y < 0) transform.position = new Vector2(transform.position.x, 1);
-
-            computer.SetFirstPlanWindow(this);
         }
 
         #region MainMethods
@@ -60,7 +70,7 @@ namespace Nazio_LT
             state = !state;
             StartCoroutine(ChangingStateAnimation(false, state));
 
-            if(state) computer.SetFirstPlanWindow(this);
+            if (state) computer.SetFirstPlanWindow(this);
         }
 
         public virtual void Close()

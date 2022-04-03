@@ -303,6 +303,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1687770002846992366, guid: 41ebae4fe9555bb41a5c07a566fd9319, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1687770002960230764, guid: 41ebae4fe9555bb41a5c07a566fd9319, type: 3}
+      propertyPath: windowsPrefabs.Array.size
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 1687770002960230764, guid: 41ebae4fe9555bb41a5c07a566fd9319, type: 3}
+      propertyPath: windowsPrefabs.Array.data[5]
+      value: 
+      objectReference: {fileID: 6440388281643811807, guid: 0e6c1aaa97b63b7479cf48bf71d200be, type: 3}
     - target: {fileID: 1687770004073136256, guid: 41ebae4fe9555bb41a5c07a566fd9319, type: 3}
       propertyPath: m_Camera
       value: 

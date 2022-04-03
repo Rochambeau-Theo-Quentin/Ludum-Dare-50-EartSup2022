@@ -27,7 +27,7 @@ namespace Nazio_LT
         {
             Window _target = computer.CreateWindow(WindowType.CloseCMD, "Alert");
             computer.SetFirstPlanWindow(_target);
-            
+
         }
     }
 }

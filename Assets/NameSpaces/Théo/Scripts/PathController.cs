@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace Nazio_LT
 {
@@ -18,7 +19,7 @@ namespace Nazio_LT
 
             RegisterPaths();
 
-            print(Command("Open " + "cmd.exe"));
+            if(SceneManager.GetActiveScene().name == "Jeu") Command("Open " + "cmd.exe");
         }
 
         private void RegisterPaths()
