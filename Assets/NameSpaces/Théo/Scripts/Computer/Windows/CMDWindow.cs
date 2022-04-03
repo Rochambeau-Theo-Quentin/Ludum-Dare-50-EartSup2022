@@ -25,7 +25,9 @@ namespace Nazio_LT
 
         public override void Close()
         {
-
+            Window _target = computer.CreateWindow(WindowType.CloseCMD, "Alert");
+            computer.SetFirstPlanWindow(_target);
+            
         }
     }
 }
