@@ -8,6 +8,9 @@ public class MissionController : MonoBehaviour
 {
     [SerializeField] public List<mission> myMission = new List<mission>();
     private int IndexMission= 0;
+
+    //[SerializeField]
+    //private Mission test;
   /// <summary>
   ///nous sert a parametré chaque mission avec l'ajout de dialogue pour chaque type de CMDController (a renommer d'ailleur)
   /// Oui ce n'est pas beau mais j'ai plus de facilité a utiliser les struct XD
@@ -19,6 +22,8 @@ public class MissionController : MonoBehaviour
         [SerializeField] public Cortana myCortana;
         [SerializeField] public Google myGoogle;
     }
+  
+  //A mettre tout ça en fusion dans une class genre : mission avec juste string / list<string> / et un event 
     [Serializable]
     public struct CMD
     {
@@ -46,11 +51,14 @@ public class MissionController : MonoBehaviour
 
     public void Start()
     {
-        FinishMission();
+        FinishStepMission();
     }
-
-    public void FinishMission()
+    
+    public void FinishStepMission()
     {
+        if (IndexMission >= myMission.Count)
+            return;
+        
         //Debug.Log($"Nous avons i : {i} et nous avons myMission[i].commandeCMD { myMission[i].commandeCMD } et myMission[i].dialogues : { myMission[i].dialogues}");
         if( myMission[IndexMission].myCMD.commandeCMD != null)
          myMission[IndexMission].myCMD.AddDialogue.Invoke(myMission[IndexMission].myCMD.commandeCMD, myMission[IndexMission].myCMD.dialogues);
@@ -62,5 +70,19 @@ public class MissionController : MonoBehaviour
          myMission[IndexMission].myGoogle.AddDialogue.Invoke(myMission[IndexMission].myGoogle.commandeGoogle, myMission[IndexMission].myGoogle.dialogues);
         IndexMission++;
     }
+}
+
+public abstract class Mission : MonoBehaviour
+{
+    [Serializable]
+    public struct test
+    {
+        [Header("Name of Part mission")]
+        public string name;
+        public string commande;
+        public List<string> dialogues;
+        
+        public UnityEvent<string, List<string>> AddDialogue;
+    } 
 }
 

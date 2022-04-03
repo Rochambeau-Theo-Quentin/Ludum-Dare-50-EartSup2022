@@ -113,7 +113,7 @@ public class CMDController : MonoBehaviour  , IPointerEnterHandler, IPointerExit
     void SetTextCommand()
     {
         CreateText();
-        textCMD.text = ($"----------------");
+        textCMD.text = (baseCommandText);
         txt.text = ($"{userName} {myDialogue[indexWritting].writtingText}");
         txt.color = userColor;
         scrollbar.value = 0;

@@ -10,6 +10,9 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/Assets/Alexis/Scripts/TestDeMission.cs" root0="FORCE_HIGHLIGHTING" />
+  </component>
   <component name="ProjectId" id="27EVknq1O4XVTMop89u4BLWrlKv" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
@@ -21,6 +24,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="nodejs_package_manager_path" value="npm" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RunManager" selected="Attach to Unity Editor.Attach to Unity Editor">
@@ -55,7 +59,7 @@
       <updated>1648885460074</updated>
       <workItem from="1648885461094" duration="15731000" />
       <workItem from="1648925711007" duration="3048000" />
-      <workItem from="1648973730728" duration="11249000" />
+      <workItem from="1648973730728" duration="15503000" />
     </task>
     <servers />
   </component>
