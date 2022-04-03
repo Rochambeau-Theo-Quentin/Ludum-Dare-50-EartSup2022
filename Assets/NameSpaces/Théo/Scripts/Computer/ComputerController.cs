@@ -22,10 +22,11 @@ namespace Nazio_LT
 
         [Header("Refs")]
         [SerializeField] private Transform bar;
+        private PathController path;
 
-        private void Start()
+        private void Awake()
         {
-            CreateWindow(WindowType.CMD, "cmd.exe");
+            path = FindObjectOfType<PathController>();
         }
 
         public Window CreateWindow(WindowType _type, string _path)
@@ -43,14 +44,17 @@ namespace Nazio_LT
 
         public void SetFirstPlanWindow(Window _window)
         {
-            print("Set 1st plan : " + _window.name);
-
             foreach (var windows in openedWindows)
             {
                 if(windows != null) windows.canvas.sortingOrder = 10;
             }
 
             _window.canvas.sortingOrder = 50;
+        }
+
+        public void CMD(string _cmd)
+        {
+            Debug.Log(path.Command(_cmd));
         }
     }
 }
