@@ -10,6 +10,7 @@ namespace Nazio_LT
         CMD = 1,
         CloseCMD = 2,
         ReadMe = 3,
+        Gogol = 4,
     }
 
     public class ComputerController : MonoBehaviour

@@ -38,6 +38,7 @@ public class CMDController : MonoBehaviour  , IPointerEnterHandler, IPointerExit
 
     private VerticalLayoutGroup verticalLayoutGroup;
     private Scrollbar scrollbar;
+    private bool debug;
 
     public UnityEvent messageIsWritting;
 
@@ -87,7 +88,7 @@ public class CMDController : MonoBehaviour  , IPointerEnterHandler, IPointerExit
             
             indexCommand++;
 
-            Debug.Log($"indexCommand : {indexCommand} > myDialogue[indexWritting].writtingText.Length : {myDialogue[indexWritting].writtingText.Length}");
+            DebugText($"indexCommand : {indexCommand} > myDialogue[indexWritting].writtingText.Length : {myDialogue[indexWritting].writtingText.Length}");
             if (indexCommand >= myDialogue[indexWritting].writtingText.Length)
             {
                 SetTextCommand();
@@ -148,19 +149,19 @@ public class CMDController : MonoBehaviour  , IPointerEnterHandler, IPointerExit
     //Que dans GOOGLE ET CORTANA avoir pour l'abstract
     public void OnPointerEnter(PointerEventData eventData)
     {
-        Debug.Log("Je rentre dans : " + name);
+        DebugText("Je rentre dans : " + name);
         
         if (dialogueType == dialogueState.Cortana|| dialogueType == dialogueState.Google)
         {
             seePanelDialogue.SetActive(true);
         }
-        Debug.Log(" canWritting  : " + canWritting);
+        DebugText(" canWritting  : " + canWritting);
         canWritting = true;
     }
     
     public void OnPointerExit(PointerEventData eventData)
     {
-        Debug.Log("Je sors de : " + name);
+        DebugText("Je sors de : " + name);
         
         if (dialogueType == dialogueState.Cortana || dialogueType == dialogueState.Google)
         {
@@ -168,6 +169,12 @@ public class CMDController : MonoBehaviour  , IPointerEnterHandler, IPointerExit
         }
         
         canWritting = false;
+    }
+
+    private void DebugText(string _string)
+    {
+        if(!debug) return;
+        Debug.Log(_string);
     }
 
 }
