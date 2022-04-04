@@ -29,6 +29,7 @@ public class MissionController : MonoBehaviour
     public struct CMD
     {
         public string commandeCMD;
+        public string elementToProgress;
         public List<string> dialogues;
         
         public UnityEvent<string, List<string>> AddDialogue;
@@ -37,6 +38,7 @@ public class MissionController : MonoBehaviour
     public struct Cortana
     {
         public string commandeCortana;
+        public string elementToProgress;
         public List<string> dialogues;
         
         public UnityEvent<string, List<string>> AddDialogue;
@@ -45,6 +47,7 @@ public class MissionController : MonoBehaviour
     public struct Google
     {
         public string commandeGoogle;
+        public string elementToProgress;
         public List<string> dialogues;
         
         public UnityEvent<string, List<string>> AddDialogue;
