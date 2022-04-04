@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a064dfc2b5fbb74381e3d07e07c2210, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  IsGoogle: 0
 --- !u!114 &2845846872926896640
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -32,7 +33,7 @@ MonoBehaviour:
       m_Calls: []
   hackerColor: {r: 0.65882355, g: 0.37849852, b: 0.33333334, a: 1}
   userColor: {r: 0.33333334, g: 0.6216356, b: 0.65882355, a: 1}
-  userName: C:\Users\Michel>
+  userName: C:\Users\John>
   hackerName: C:\Users\Anonymous>
   myDialogue:
   - writtingText: Close CMD.exe

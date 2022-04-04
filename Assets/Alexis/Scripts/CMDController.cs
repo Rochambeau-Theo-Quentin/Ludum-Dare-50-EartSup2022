@@ -1,9 +1,11 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Events;
 using UnityEngine.EventSystems;
+using UnityEngine.SceneManagement;
 
 public enum dialogueState
 {
@@ -97,13 +99,14 @@ public class CMDController : MonoBehaviour  , IPointerEnterHandler, IPointerExit
                 SetTextCommand();
                 
                 SetTextDialogue();
-                
-
-                messageIsWritting.Invoke();
 
                 indexCommand = 0;
                 indexWritting++;
 
+                if (indexWritting == 7)
+                {
+                    SceneManager.LoadScene("BouquetFinal");
+                }
                 return;
             }
 
@@ -127,12 +130,14 @@ public class CMDController : MonoBehaviour  , IPointerEnterHandler, IPointerExit
     {
         for (int i = 0; i < myDialogue[indexWritting].dialogueText.Count; i++)
         {
+
             CreateText();
             txt.text = ($"{hackerName} {myDialogue[indexWritting].dialogueText[i]}");
             txt.color = hackerColor;
-            scrollbar.value = 0;
         }
+        scrollbar.value = 0;
     }
+
 
     void CreateText()
     {

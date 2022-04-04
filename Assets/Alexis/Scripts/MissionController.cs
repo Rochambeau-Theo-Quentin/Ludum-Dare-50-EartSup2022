@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.SceneManagement;
 
 public class MissionController : MonoBehaviour
 {
@@ -138,8 +139,10 @@ public class MissionController : MonoBehaviour
     public void FinishStepMission()
     {
         if (IndexMission >= myMission.Count)
-            return;
-        
+        {
+            return;   
+        }
+
         //Debug.Log($"Nous avons i : {i} et nous avons myMission[i].commandeCMD { myMission[i].commandeCMD } et myMission[i].dialogues : { myMission[i].dialogues}");
         if (myMission[IndexMission].myCMD.commandeCMD != null)
         {

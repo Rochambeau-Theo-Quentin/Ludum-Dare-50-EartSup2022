@@ -123,6 +123,41 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &116591131
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 116591132}
+  m_Layer: 5
+  m_Name: SpawnPoint (2)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &116591132
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 116591131}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 961124165}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -587, y: -221}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &560941083
 GameObject:
   m_ObjectHideFlags: 0
@@ -786,9 +821,13 @@ MonoBehaviour:
               m_BoolArgument: 0
             m_CallState: 2
     myGoogle:
-      commandeGoogle: My CMD tells me I'm an asshole ...
+      commandeGoogle: 'My CMD tells me I''m an asshole ... '
       dialogues:
+      - And my folder create icons on my desktop ?
       - Are you sure? No application would dare to insult its users!
+      - 'Forum: 2016'
+      - This is not normal, I think you need to shut down your computer or close
+        all applications
       AddDialogue:
         m_PersistentCalls:
           m_Calls: []
@@ -797,18 +836,112 @@ MonoBehaviour:
     iconToSpawn: {fileID: 4708021348248470171, guid: 026946138654ad6499920965b27b3445, type: 3}
     iconToSpawnPoint: {fileID: 1544204193}
     myCMD:
-      commandeCMD: Open Users/Holidays/2016
+      commandeCMD: Open Users/John/Holidays/2016
       dialogues:
-      - 'recent installation: yesterday folder C/:Users r/-error-/'
+      - 'recent installation: yesterday folder C/:Users/-error-/'
       - ' /-error-/'
       - ' /-error-/'
       - ' /-error-/'
+      AddDialogue:
+        m_PersistentCalls:
+          m_Calls: []
+    myCortana:
+      commandeCortana: what are you for?
+      dialogues:
+      - .....
+      - to help you, to advise you, to guide you ...
+      - I am your friend ! No ?
+      AddDialogue:
+        m_PersistentCalls:
+          m_Calls:
+          - m_Target: {fileID: 1461799124}
+            m_TargetAssemblyTypeName: CMDController, Assembly-CSharp
+            m_MethodName: AddDialogue
+            m_Mode: 0
+            m_Arguments:
+              m_ObjectArgument: {fileID: 0}
+              m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+              m_IntArgument: 0
+              m_FloatArgument: 0
+              m_StringArgument: 
+              m_BoolArgument: 0
+            m_CallState: 2
+    myGoogle:
+      commandeGoogle: 'My computer is owned '
+      dialogues:
+      - 'Tip 1: If your computer creates icons for you by itself: probably '
+      - 'Tip 2: If your computer insults you when you have not said anything: probably '
+      - 'Tip 3 : if your paragliding pictures are modified : probably ;)'
+      - 'Tip 4: I like men named John'
+      AddDialogue:
+        m_PersistentCalls:
+          m_Calls: []
+  - elementToProgress:
+    - WindowImageCorrompu(Clone)
+    iconToSpawn: {fileID: 1381561203985453088, guid: ca6c42f18a8c55748a156f5a2dfee232, type: 3}
+    iconToSpawnPoint: {fileID: 116591132}
+    myCMD:
+      commandeCMD: 'Open Users/Holidays/2016 fuck ! '
+      dialogues:
+      - 'I return the words to you '
+      - it's not very nice !
+      - it's not very nice !
+      - my friend :)
+      - :)
+      - :)
+      AddDialogue:
+        m_PersistentCalls:
+          m_Calls: []
+    myCortana:
+      commandeCortana: Help me !
+      dialogues:
+      - ;)
+      - ;)
+      - ;)
+      - i'm your friend !
+      AddDialogue:
+        m_PersistentCalls:
+          m_Calls:
+          - m_Target: {fileID: 1461799124}
+            m_TargetAssemblyTypeName: CMDController, Assembly-CSharp
+            m_MethodName: AddDialogue
+            m_Mode: 0
+            m_Arguments:
+              m_ObjectArgument: {fileID: 0}
+              m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+              m_IntArgument: 0
+              m_FloatArgument: 0
+              m_StringArgument: 
+              m_BoolArgument: 0
+            m_CallState: 2
+    myGoogle:
+      commandeGoogle: how to remove a virus on my computer?
+      dialogues:
+      - 'Solution 1: Open your CMD - Type the command: "Scan my computer"'
+      - if you have a message "nothing to report" all is well
+      - 'if you have :'
+      - '"Yes you have a virus on your computer you are really stupid! "it''s bad '
+      AddDialogue:
+        m_PersistentCalls:
+          m_Calls: []
+  - elementToProgress:
+    - NotePadCorrompuWindow(Clone)
+    iconToSpawn: {fileID: 0}
+    iconToSpawnPoint: {fileID: 0}
+    myCMD:
+      commandeCMD: What do you want! I didn't hurt anyone !
+      dialogues:
+      - 'mmmmmmmm.... Of course ... '
+      - I'm really sorry to have scared you ...
+      - I give you back your computer ...
+      - we stay friends ?! ;)
       AddDialogue:
         m_PersistentCalls:
           m_Calls: []
     myCortana:
       commandeCortana: 
-      dialogues: []
+      dialogues:
+      - 
       AddDialogue:
         m_PersistentCalls:
           m_Calls:
@@ -825,30 +958,33 @@ MonoBehaviour:
               m_BoolArgument: 0
             m_CallState: 2
     myGoogle:
-      commandeGoogle: my folder create icons on my desktop
+      commandeGoogle: A hacker hacked my computer
       dialogues:
-      - 'Forum: 2016'
-      - This is not normal, I think you need to shut down your computer or close
-        all applications
+      - 404
       AddDialogue:
         m_PersistentCalls:
           m_Calls: []
-  - elementToProgress: []
+  - elementToProgress:
+    - CMDWindow(Clone)
     iconToSpawn: {fileID: 0}
     iconToSpawnPoint: {fileID: 0}
     myCMD:
-      commandeCMD: Open Users/Holidays/2016
+      commandeCMD: 'yes yes .... thanks '
       dialogues:
-      - ' /-error-/'
-      - ' /-error-/'
-      - ' /-error-/'
+      - but you are the most stupid man !
+      - 'I have never seen this! '
+      - you are an asshole!
+      - you are an asshole!
+      - DO YOU KNOW THAT !
+      - 'says goodbye ! '
+      - and see you later :)
       AddDialogue:
         m_PersistentCalls:
           m_Calls: []
     myCortana:
-      commandeCortana: nothing
+      commandeCortana: 
       dialogues:
-      - is not good for you
+      - 
       AddDialogue:
         m_PersistentCalls:
           m_Calls:
@@ -865,77 +1001,9 @@ MonoBehaviour:
               m_BoolArgument: 0
             m_CallState: 2
     myGoogle:
-      commandeGoogle: 
-      dialogues: []
-      AddDialogue:
-        m_PersistentCalls:
-          m_Calls: []
-  - elementToProgress: []
-    iconToSpawn: {fileID: 0}
-    iconToSpawnPoint: {fileID: 0}
-    myCMD:
-      commandeCMD: 
-      dialogues: []
-      AddDialogue:
-        m_PersistentCalls:
-          m_Calls: []
-    myCortana:
-      commandeCortana: 'Google '
+      commandeGoogle: A hacker hacked my computer
       dialogues:
-      - is not good for you
-      AddDialogue:
-        m_PersistentCalls:
-          m_Calls:
-          - m_Target: {fileID: 1461799124}
-            m_TargetAssemblyTypeName: CMDController, Assembly-CSharp
-            m_MethodName: AddDialogue
-            m_Mode: 0
-            m_Arguments:
-              m_ObjectArgument: {fileID: 0}
-              m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-              m_IntArgument: 0
-              m_FloatArgument: 0
-              m_StringArgument: 
-              m_BoolArgument: 0
-            m_CallState: 2
-    myGoogle:
-      commandeGoogle: Je suis la pk tu ecrit
-      dialogues:
-      - dsfdffgsfsdfdf
-      AddDialogue:
-        m_PersistentCalls:
-          m_Calls: []
-  - elementToProgress: []
-    iconToSpawn: {fileID: 0}
-    iconToSpawnPoint: {fileID: 0}
-    myCMD:
-      commandeCMD: 
-      dialogues: []
-      AddDialogue:
-        m_PersistentCalls:
-          m_Calls: []
-    myCortana:
-      commandeCortana: 'Google '
-      dialogues:
-      - is not good for you
-      AddDialogue:
-        m_PersistentCalls:
-          m_Calls:
-          - m_Target: {fileID: 1461799124}
-            m_TargetAssemblyTypeName: CMDController, Assembly-CSharp
-            m_MethodName: AddDialogue
-            m_Mode: 0
-            m_Arguments:
-              m_ObjectArgument: {fileID: 0}
-              m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-              m_IntArgument: 0
-              m_FloatArgument: 0
-              m_StringArgument: 
-              m_BoolArgument: 0
-            m_CallState: 2
-    myGoogle:
-      commandeGoogle: 
-      dialogues: []
+      - 404
       AddDialogue:
         m_PersistentCalls:
           m_Calls: []
@@ -985,7 +1053,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 83, y: 51}
+  m_AnchoredPosition: {x: -171, y: 386}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1666189917
@@ -1070,8 +1138,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 814017705}
   m_HandleRect: {fileID: 814017704}
   m_Direction: 2
-  m_Value: 0
-  m_Size: 0.00000016968617
+  m_Value: 1
+  m_Size: 0.00000033937235
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -1151,7 +1219,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1687770002960230764, guid: 41ebae4fe9555bb41a5c07a566fd9319, type: 3}
       propertyPath: windowsPrefabs.Array.size
-      value: 8
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 1687770002960230764, guid: 41ebae4fe9555bb41a5c07a566fd9319, type: 3}
       propertyPath: windowsPrefabs.Array.data[5]
@@ -1165,6 +1233,10 @@ PrefabInstance:
       propertyPath: windowsPrefabs.Array.data[7]
       value: 
       objectReference: {fileID: 8479465271381200240, guid: 0b08014eb86b4644b8342db9d3dd72d3, type: 3}
+    - target: {fileID: 1687770002960230764, guid: 41ebae4fe9555bb41a5c07a566fd9319, type: 3}
+      propertyPath: windowsPrefabs.Array.data[8]
+      value: 
+      objectReference: {fileID: 836895775891740906, guid: 42a85ccd01031a541b4e3490178c2a3f, type: 3}
     - target: {fileID: 1687770003856166267, guid: 41ebae4fe9555bb41a5c07a566fd9319, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: -0.50000095
@@ -1337,7 +1409,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: 0, y: 359.69443}
+  m_AnchoredPosition: {x: 0, y: 359.6943}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &1935619505
@@ -1389,7 +1461,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 506119123497797992, guid: c23722ee00c6b754d982ba3d9d10cf66, type: 3}
       propertyPath: icons.Array.size
-      value: 8
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 506119123497797992, guid: c23722ee00c6b754d982ba3d9d10cf66, type: 3}
       propertyPath: icons.Array.data[6]
@@ -1399,6 +1471,10 @@ PrefabInstance:
       propertyPath: icons.Array.data[7]
       value: 
       objectReference: {fileID: 21300000, guid: 794f4aaecb24f6b4f9ae60868aba948c, type: 3}
+    - target: {fileID: 506119123497797992, guid: c23722ee00c6b754d982ba3d9d10cf66, type: 3}
+      propertyPath: icons.Array.data[8]
+      value: 
+      objectReference: {fileID: 21300000, guid: 3b3c430342a83e14ca119f87d7e9eba8, type: 3}
     - target: {fileID: 506119123497797993, guid: c23722ee00c6b754d982ba3d9d10cf66, type: 3}
       propertyPath: m_Name
       value: GameManager

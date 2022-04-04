@@ -13,7 +13,8 @@ namespace Nazio_LT
         Gogol = 4,
         Folder = 5,
         WindowsImage = 6,
-        WindowsImageCorompu = 7
+        WindowsImageCorompu = 7,
+        ReadmeCorompu = 8
     }
 
     public class ComputerController : MonoBehaviour
