@@ -405,6 +405,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 208684199, guid: b59d9c0cb64abfc48b9526ba47f239f1, type: 3}
+      propertyPath: m_text
+      value: Hacked-KerX
+      objectReference: {fileID: 0}
+    - target: {fileID: 208684199, guid: b59d9c0cb64abfc48b9526ba47f239f1, type: 3}
       propertyPath: m_fontAsset
       value: 
       objectReference: {fileID: 11400000, guid: a6f06b21bb3a99f40976b4ed29b307ad, type: 2}
@@ -451,6 +455,10 @@ PrefabInstance:
     - target: {fileID: 328502112, guid: b59d9c0cb64abfc48b9526ba47f239f1, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 328502113, guid: b59d9c0cb64abfc48b9526ba47f239f1, type: 3}
+      propertyPath: m_text
+      value: Assets
       objectReference: {fileID: 0}
     - target: {fileID: 328502113, guid: b59d9c0cb64abfc48b9526ba47f239f1, type: 3}
       propertyPath: m_fontAsset
@@ -1589,6 +1597,10 @@ PrefabInstance:
     - target: {fileID: 2145423778, guid: b59d9c0cb64abfc48b9526ba47f239f1, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2145423779, guid: b59d9c0cb64abfc48b9526ba47f239f1, type: 3}
+      propertyPath: m_text
+      value: Font
       objectReference: {fileID: 0}
     - target: {fileID: 2145423779, guid: b59d9c0cb64abfc48b9526ba47f239f1, type: 3}
       propertyPath: m_fontAsset
@@ -3952,6 +3964,7 @@ GameObject:
   - component: {fileID: 1271678657}
   - component: {fileID: 1271678656}
   - component: {fileID: 1271678655}
+  - component: {fileID: 1271678659}
   m_Layer: 0
   m_Name: Camera
   m_TagString: Untagged
@@ -4056,6 +4069,102 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!82 &1271678659
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1271678654}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 1999748950156868954, guid: e8b9a952648126f4c9373f196be2585d, type: 2}
+  m_audioClip: {fileID: 8300000, guid: 2bdaadf2d45faee4895c937ec1c0fe7a, type: 3}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &1515313702
 GameObject:
   m_ObjectHideFlags: 0
