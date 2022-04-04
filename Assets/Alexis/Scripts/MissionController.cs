@@ -8,7 +8,7 @@ public class MissionController : MonoBehaviour
 {
     [SerializeField] public List<mission> myMission = new List<mission>();
     //[SerializeField] public List<CMDController> cmd = new List<CMDController>();
-    private int IndexMission= 0;
+    private int IndexMission { get; set; }
     
     //[SerializeField]
     //private Mission test;
@@ -118,10 +118,20 @@ public class MissionController : MonoBehaviour
             for (int i = 0; i < myMission.Count; i++)
             {
                 myMission[i].myGoogle.AddDialogue.AddListener(cmdController.AddDialogue);
+                //Debug.Log(i);
             }
         }
 
         //cmd.Add(cmdController);
+    }
+
+    public void  GetMission()
+    {
+        for (int i = 0; i < IndexMission; i++)
+        {
+            myMission[i].myGoogle.AddDialogue.Invoke(myMission[i].myGoogle.commandeGoogle, myMission[i].myGoogle.dialogues);
+            //Debug.Log(i);
+        }
     }
 
     public void FinishStepMission()
@@ -137,11 +147,14 @@ public class MissionController : MonoBehaviour
         {
             myMission[IndexMission].myCortana.AddDialogue.Invoke(myMission[IndexMission].myCortana.commandeCortana, myMission[IndexMission].myCortana.dialogues);
         }
-        
-        if( myMission[IndexMission].myGoogle.commandeGoogle != null)
-         myMission[IndexMission].myGoogle.AddDialogue.Invoke(myMission[IndexMission].myGoogle.commandeGoogle, myMission[IndexMission].myGoogle.dialogues);
-        
-        IndexMission++;
+
+        if (myMission[IndexMission].myGoogle.commandeGoogle != null)
+        {
+            myMission[IndexMission].myGoogle.AddDialogue.Invoke(myMission[IndexMission].myGoogle.commandeGoogle, myMission[IndexMission].myGoogle.dialogues);
+            Debug.Log("myMission[IndexMission].myGoogle.commandeGoogle : " + myMission[IndexMission].myGoogle.commandeGoogle);
+        }
+
+         IndexMission++;
     }
 }
 
