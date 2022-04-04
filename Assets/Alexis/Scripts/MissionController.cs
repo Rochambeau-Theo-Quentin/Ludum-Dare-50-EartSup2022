@@ -101,9 +101,10 @@ public class MissionController : MonoBehaviour
         {
             Debug.Log("CMD");
 
-
-                myMission[IndexMission].myCMD.AddDialogue.AddListener(cmdController.AddDialogue);   
-            
+            for (int i = 0; i < myMission.Count; i++)
+            {
+                myMission[i].myCMD.AddDialogue.AddListener(cmdController.AddDialogue);   
+            }
         }
         
         if (cmdController.GetState() == dialogueState.Cortana)
@@ -140,8 +141,12 @@ public class MissionController : MonoBehaviour
             return;
         
         //Debug.Log($"Nous avons i : {i} et nous avons myMission[i].commandeCMD { myMission[i].commandeCMD } et myMission[i].dialogues : { myMission[i].dialogues}");
-        if( myMission[IndexMission].myCMD.commandeCMD != null)
-         myMission[IndexMission].myCMD.AddDialogue.Invoke(myMission[IndexMission].myCMD.commandeCMD, myMission[IndexMission].myCMD.dialogues);
+        if (myMission[IndexMission].myCMD.commandeCMD != null)
+        {
+            Debug.LogWarning("pourtant tu doit te lancer");
+            Debug.LogWarning("pourtant tu doit te lancer");
+            myMission[IndexMission].myCMD.AddDialogue.Invoke(myMission[IndexMission].myCMD.commandeCMD, myMission[IndexMission].myCMD.dialogues);   
+        }
 
         if (myMission[IndexMission].myCortana.commandeCortana != null)
         {
@@ -151,10 +156,10 @@ public class MissionController : MonoBehaviour
         if (myMission[IndexMission].myGoogle.commandeGoogle != null)
         {
             myMission[IndexMission].myGoogle.AddDialogue.Invoke(myMission[IndexMission].myGoogle.commandeGoogle, myMission[IndexMission].myGoogle.dialogues);
-            Debug.Log("myMission[IndexMission].myGoogle.commandeGoogle : " + myMission[IndexMission].myGoogle.commandeGoogle);
+           // Debug.Log("myMission[IndexMission].myGoogle.commandeGoogle : " + myMission[IndexMission].myGoogle.commandeGoogle);
         }
 
-         IndexMission++;
+        IndexMission++;
     }
 }
 
