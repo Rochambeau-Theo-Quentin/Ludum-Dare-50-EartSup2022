@@ -11,6 +11,7 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/Assets/NameSpaces/Théo/Scripts/Computer/Windows/FolderImageWindow.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Alexis/Scripts/TestDeMission.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Alexis/Scripts/SendInformation.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
@@ -61,7 +62,7 @@
       <workItem from="1648885461094" duration="15731000" />
       <workItem from="1648925711007" duration="3048000" />
       <workItem from="1648973730728" duration="24440000" />
-      <workItem from="1649059168508" duration="3848000" />
+      <workItem from="1649059168508" duration="11619000" />
     </task>
     <servers />
   </component>

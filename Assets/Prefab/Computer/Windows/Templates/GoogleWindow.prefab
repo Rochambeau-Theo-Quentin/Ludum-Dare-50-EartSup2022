@@ -719,10 +719,13 @@ MonoBehaviour:
   userName: 'Recherche :'
   hackerName: 'Cortana :'
   myDialogue:
-  - writtingText: Bonjour je suis votre assistante social !
+  - writtingText: videos of cats
     dialogueText:
-    - ha ba d'accord
-    - "je pr\xE9f\xE9re manger mes pates"
+    - https://www.you.tu/watch!16Az5bB5=85
+    - https://www.you.tu/watch!16Az5bB5=48
+    - https://www.you.tu/watch!16Az5bB5=42
+    - https://www.you.tu/watch!16Az5bB5=66
+    - https://www.you.tu/watch!16Az5bB5=10
   dialogueType: 2
   seePanelDialogue: {fileID: 1505337112}
 --- !u!114 &4703537662504881000

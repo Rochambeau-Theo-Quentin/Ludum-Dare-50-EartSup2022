@@ -18,12 +18,16 @@ public class MissionController : MonoBehaviour
   /// </summary>
     [Serializable]
     public struct mission
-    {
+  {
+      public List<string> elementToProgress;
+      public GameObject iconToSpawn;
+      public Transform iconToSpawnPoint;
+      
         [SerializeField] public CMD myCMD;
         [SerializeField] public Cortana myCortana;
         [SerializeField] public Google myGoogle;
-        [SerializeField] public Readme myReadme;
-        [SerializeField] public Window myWindow;
+        //[SerializeField] public Readme myReadme;
+        //[SerializeField] public Window myWindow;
     }
   
   //A mettre tout ça en fusion dans une class genre : mission avec juste string / list<string> / et un event 
@@ -31,7 +35,6 @@ public class MissionController : MonoBehaviour
     public struct CMD
     {
         public string commandeCMD;
-        public string elementToProgress;
         public List<string> dialogues;
         
         public UnityEvent<string, List<string>> AddDialogue;
@@ -40,7 +43,7 @@ public class MissionController : MonoBehaviour
     public struct Cortana
     {
         public string commandeCortana;
-        public string elementToProgress;
+
         public List<string> dialogues;
         
         public UnityEvent<string, List<string>> AddDialogue;
@@ -49,47 +52,58 @@ public class MissionController : MonoBehaviour
     public struct Google
     {
         public string commandeGoogle;
-        public string elementToProgress;
+
         public List<string> dialogues;
         
         public UnityEvent<string, List<string>> AddDialogue;
     }
+    /*
     [Serializable]
     public struct Readme
     {
-        public string elementToProgress;
+        public GameObject iconToSpawn;
+        public Transform iconToSpawnPoint;
     }    
     [Serializable]
     public struct Window
     {
-        public string elementToProgress;
+        public GameObject iconToSpawn;
+        public Transform iconToSpawnPoint;
     }
-
+*/
     public void VerificationWindows(string windows)
     {
-        
-        if (myMission[IndexMission].myCortana.elementToProgress == windows || 
-            myMission[IndexMission].myCMD.elementToProgress == windows ||
-            myMission[IndexMission].myGoogle.elementToProgress == windows ||
-            myMission[IndexMission].myReadme.elementToProgress == windows)
+        foreach (string step in myMission[IndexMission].elementToProgress)
         {
-            Debug.LogWarning("Tu passe de niveau oulalalaa");
+            if (step == windows)
+            {
+                Debug.LogWarning("Tu passe de niveau oulalalaa");
+                SpawnNewIcon();
                 FinishStepMission();
+            }   
         }
-        
     }
-    
+
+    void SpawnNewIcon()
+    {
+        if (myMission[IndexMission].iconToSpawn != null)
+        {
+            Instantiate(myMission[IndexMission].iconToSpawn.gameObject, 
+               myMission[IndexMission].iconToSpawnPoint.position, 
+               transform.rotation,
+               myMission[IndexMission].iconToSpawnPoint.transform);
+        }
+    }
+
     public void addListenedOfMision(CMDController cmdController)
     {
-
         if (cmdController.GetState() == dialogueState.CMD)
         {
             Debug.Log("CMD");
 
-            for (int i = 0; i < myMission.Count; i++)
-            {
-                myMission[i].myCMD.AddDialogue.AddListener(cmdController.AddDialogue);   
-            }
+
+                myMission[IndexMission].myCMD.AddDialogue.AddListener(cmdController.AddDialogue);   
+            
         }
         
         if (cmdController.GetState() == dialogueState.Cortana)
@@ -103,10 +117,10 @@ public class MissionController : MonoBehaviour
             Debug.Log("Google");
             for (int i = 0; i < myMission.Count; i++)
             {
-                myMission[IndexMission].myGoogle.AddDialogue.AddListener(cmdController.AddDialogue);
+                myMission[i].myGoogle.AddDialogue.AddListener(cmdController.AddDialogue);
             }
         }
-        
+
         //cmd.Add(cmdController);
     }
 
