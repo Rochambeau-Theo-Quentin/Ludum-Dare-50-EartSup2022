@@ -1139,7 +1139,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 814017704}
   m_Direction: 2
   m_Value: 1
-  m_Size: 0.00000033937235
+  m_Size: 0
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -1219,7 +1219,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1687770002960230764, guid: 41ebae4fe9555bb41a5c07a566fd9319, type: 3}
       propertyPath: windowsPrefabs.Array.size
-      value: 9
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 1687770002960230764, guid: 41ebae4fe9555bb41a5c07a566fd9319, type: 3}
       propertyPath: windowsPrefabs.Array.data[5]
@@ -1235,6 +1235,10 @@ PrefabInstance:
       objectReference: {fileID: 8479465271381200240, guid: 0b08014eb86b4644b8342db9d3dd72d3, type: 3}
     - target: {fileID: 1687770002960230764, guid: 41ebae4fe9555bb41a5c07a566fd9319, type: 3}
       propertyPath: windowsPrefabs.Array.data[8]
+      value: 
+      objectReference: {fileID: 836895775891740906, guid: 42a85ccd01031a541b4e3490178c2a3f, type: 3}
+    - target: {fileID: 1687770002960230764, guid: 41ebae4fe9555bb41a5c07a566fd9319, type: 3}
+      propertyPath: windowsPrefabs.Array.data[9]
       value: 
       objectReference: {fileID: 836895775891740906, guid: 42a85ccd01031a541b4e3490178c2a3f, type: 3}
     - target: {fileID: 1687770003856166267, guid: 41ebae4fe9555bb41a5c07a566fd9319, type: 3}
@@ -1409,7 +1413,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: 0, y: 359.6943}
+  m_AnchoredPosition: {x: 0, y: 359.6944}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &1935619505
@@ -1461,7 +1465,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 506119123497797992, guid: c23722ee00c6b754d982ba3d9d10cf66, type: 3}
       propertyPath: icons.Array.size
-      value: 9
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 506119123497797992, guid: c23722ee00c6b754d982ba3d9d10cf66, type: 3}
       propertyPath: icons.Array.data[6]
@@ -1473,6 +1477,10 @@ PrefabInstance:
       objectReference: {fileID: 21300000, guid: 794f4aaecb24f6b4f9ae60868aba948c, type: 3}
     - target: {fileID: 506119123497797992, guid: c23722ee00c6b754d982ba3d9d10cf66, type: 3}
       propertyPath: icons.Array.data[8]
+      value: 
+      objectReference: {fileID: 21300000, guid: 3b3c430342a83e14ca119f87d7e9eba8, type: 3}
+    - target: {fileID: 506119123497797992, guid: c23722ee00c6b754d982ba3d9d10cf66, type: 3}
+      propertyPath: icons.Array.data[9]
       value: 
       objectReference: {fileID: 21300000, guid: 3b3c430342a83e14ca119f87d7e9eba8, type: 3}
     - target: {fileID: 506119123497797993, guid: c23722ee00c6b754d982ba3d9d10cf66, type: 3}

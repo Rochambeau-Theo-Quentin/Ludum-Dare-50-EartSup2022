@@ -14,7 +14,8 @@ namespace Nazio_LT
         Folder = 5,
         WindowsImage = 6,
         WindowsImageCorompu = 7,
-        ReadmeCorompu = 8
+        ReadmeCorompu = 8,
+        ReadmeCoromputest = 9
     }
 
     public class ComputerController : MonoBehaviour
