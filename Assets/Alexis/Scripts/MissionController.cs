@@ -74,6 +74,11 @@ public class MissionController : MonoBehaviour
 */
     public void VerificationWindows(string windows)
     {
+        if (IndexMission >= myMission.Count)
+        {
+            return;
+        }
+        
         foreach (string step in myMission[IndexMission].elementToProgress)
         {
             if (step == windows)
