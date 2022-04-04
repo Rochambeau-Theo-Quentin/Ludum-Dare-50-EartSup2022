@@ -23,6 +23,9 @@ public class BouquetFinal : MonoBehaviour
     [SerializeField] private float[] timeBetweenAberration;
     [SerializeField] private float aberrationDuration;
 
+    [Header("BlueScreen")]
+    [SerializeField] private GameObject blueScreen;
+
     private PostProcessController pp;
 
     private void Awake()
@@ -36,6 +39,15 @@ public class BouquetFinal : MonoBehaviour
         StartCoroutine(Risitas());
         StartCoroutine(BlackScreen());
         StartCoroutine(Aberration());
+        StartCoroutine(BlueScreen());
+    }
+
+    private IEnumerator BlueScreen()
+    {
+        yield return new WaitForSeconds(53);
+
+        blueScreen.SetActive(true);
+        pp.ModifyVignette(0f);
     }
 
     private IEnumerator Aberration()
@@ -44,8 +56,7 @@ public class BouquetFinal : MonoBehaviour
         {
             yield return new WaitForSeconds(timeBetweenAberration[i]);
 
-           pp.SetAberrationValue(1f);
-print(i);
+            pp.SetAberrationValue(1f);
 
             yield return new WaitForSeconds(aberrationDuration);
 
