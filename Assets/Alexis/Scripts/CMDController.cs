@@ -9,7 +9,9 @@ public enum dialogueState
 {
 CMD,
 Cortana,
-Google
+Google,
+Readme,
+Windows
 }
 
 public class CMDController : MonoBehaviour  , IPointerEnterHandler, IPointerExitHandler
@@ -60,11 +62,12 @@ public class CMDController : MonoBehaviour  , IPointerEnterHandler, IPointerExit
 
     [SerializeField] private dialogueState dialogueType;
     [SerializeField] private GameObject seePanelDialogue;
+
     private void Start()
     {
         verticalLayoutGroup = GetComponentInChildren<VerticalLayoutGroup>();
         scrollbar = GetComponentInChildren<Scrollbar>();
-        
+
         if(dialogueType == dialogueState.Cortana || dialogueType == dialogueState.Google)
          seePanelDialogue.SetActive(false);
     }
@@ -171,7 +174,7 @@ public class CMDController : MonoBehaviour  , IPointerEnterHandler, IPointerExit
         canWritting = false;
     }
 
-    private void DebugText(string _string)
+    public void DebugText(string _string)
     {
         if(!debug) return;
         Debug.Log(_string);

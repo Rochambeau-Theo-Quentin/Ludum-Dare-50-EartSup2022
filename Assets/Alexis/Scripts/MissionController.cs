@@ -7,7 +7,7 @@ using UnityEngine.Events;
 public class MissionController : MonoBehaviour
 {
     [SerializeField] public List<mission> myMission = new List<mission>();
-    [SerializeField] public List<CMDController> cmd = new List<CMDController>();
+    //[SerializeField] public List<CMDController> cmd = new List<CMDController>();
     private int IndexMission= 0;
     
     //[SerializeField]
@@ -22,6 +22,8 @@ public class MissionController : MonoBehaviour
         [SerializeField] public CMD myCMD;
         [SerializeField] public Cortana myCortana;
         [SerializeField] public Google myGoogle;
+        [SerializeField] public Readme myReadme;
+        [SerializeField] public Window myWindow;
     }
   
   //A mettre tout ça en fusion dans une class genre : mission avec juste string / list<string> / et un event 
@@ -52,7 +54,31 @@ public class MissionController : MonoBehaviour
         
         public UnityEvent<string, List<string>> AddDialogue;
     }
+    [Serializable]
+    public struct Readme
+    {
+        public string elementToProgress;
+    }    
+    [Serializable]
+    public struct Window
+    {
+        public string elementToProgress;
+    }
 
+    public void VerificationWindows(string windows)
+    {
+        
+        if (myMission[IndexMission].myCortana.elementToProgress == windows || 
+            myMission[IndexMission].myCMD.elementToProgress == windows ||
+            myMission[IndexMission].myGoogle.elementToProgress == windows ||
+            myMission[IndexMission].myReadme.elementToProgress == windows)
+        {
+            Debug.LogWarning("Tu passe de niveau oulalalaa");
+                FinishStepMission();
+        }
+        
+    }
+    
     public void addListenedOfMision(CMDController cmdController)
     {
 
@@ -80,7 +106,8 @@ public class MissionController : MonoBehaviour
                 myMission[IndexMission].myGoogle.AddDialogue.AddListener(cmdController.AddDialogue);
             }
         }
-
+        
+        //cmd.Add(cmdController);
     }
 
     public void FinishStepMission()

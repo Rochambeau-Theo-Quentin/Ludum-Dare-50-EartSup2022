@@ -120,8 +120,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1792658048}
   m_HandleRect: {fileID: 1792658047}
   m_Direction: 2
-  m_Value: 0
-  m_Size: 0
+  m_Value: 1
+  m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -843,6 +843,10 @@ PrefabInstance:
     - target: {fileID: 8479465271381200241, guid: 6313e0b5d16cca44db64cef26b20d0ba, type: 3}
       propertyPath: m_Name
       value: GoogleWindow
+      objectReference: {fileID: 0}
+    - target: {fileID: 8818013520261032504, guid: 6313e0b5d16cca44db64cef26b20d0ba, type: 3}
+      propertyPath: m_Name
+      value: Google
       objectReference: {fileID: 0}
     - target: {fileID: 8818013520261032504, guid: 6313e0b5d16cca44db64cef26b20d0ba, type: 3}
       propertyPath: m_TagString

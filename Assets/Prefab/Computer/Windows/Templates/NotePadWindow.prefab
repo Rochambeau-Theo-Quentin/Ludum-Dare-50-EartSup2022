@@ -386,6 +386,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   savedText: "My task to do : \n\n- Children at school: 4:30 pm\n- Retouch photos\n-
     try to remove the CMD\n\nC:\\Users\\John\\Documents\\Holidays\\2016"
+--- !u!114 &7871024475098257674
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 836895775891740907}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3a064dfc2b5fbb74381e3d07e07c2210, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &9092869880062760346
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -1,16 +1,34 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
-public class SendInformation : MonoBehaviour
+public class SendInformation : MonoBehaviour, IPointerEnterHandler
 {
-    private GameObject missionController;
+    private MissionController _missionController;
     private CMDController _cmdController;
+
+    private bool debug;
     public void Start()
     {
-        missionController = GameObject.Find("MissionController");
-        MissionController ms = missionController.GetComponent<MissionController>();
-        _cmdController = GetComponent<CMDController>();
-        ms.addListenedOfMision(_cmdController);
+       GameObject ms = GameObject.Find("MissionController");
+       _missionController= ms.GetComponent<MissionController>();
+       _cmdController = GetComponent<CMDController>();
+       
+        if(_cmdController == null)
+            return;
+        
+        _missionController.addListenedOfMision(_cmdController);
+    }
+    
+    public void OnPointerEnter(PointerEventData eventData)
+    {
+        DebugText(name);
+    }
+    
+    public void DebugText(string _string)
+    {
+        Debug.Log(_string);
+        _missionController.VerificationWindows(_string);
     }
 }
