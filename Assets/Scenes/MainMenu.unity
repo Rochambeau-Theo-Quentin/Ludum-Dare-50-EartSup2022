@@ -187,6 +187,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7138f38c1bafe6c4d96b48b9087a6635, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  spaceProba: 0.1
   randomizeCount: 0.1
   lineCount: 25
   letterCount: 25
@@ -2333,6 +2334,10 @@ PrefabInstance:
       propertyPath: m_Colors.m_HighlightedColor.r
       value: 0.13207549
       objectReference: {fileID: 0}
+    - target: {fileID: 4623146082321708175, guid: b59d9c0cb64abfc48b9526ba47f239f1, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
+      value: Jeu
+      objectReference: {fileID: 0}
     - target: {fileID: 4623146082403081179, guid: b59d9c0cb64abfc48b9526ba47f239f1, type: 3}
       propertyPath: m_Colors.m_NormalColor.b
       value: 0
@@ -4101,6 +4106,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7138f38c1bafe6c4d96b48b9087a6635, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  spaceProba: 0.1
   randomizeCount: 0.1
   lineCount: 25
   letterCount: 25
